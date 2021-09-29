@@ -7,11 +7,17 @@ class Tienda(models.Model):
     nombre=models.CharField(null=False, max_length=100)
     direccion=models.CharField(null=False, max_length=200)
 
+    def __str__(self):
+        return self.nombre
+
 class Usuario(models.Model):
     idUsuario=models.PositiveSmallIntegerField(primary_key=True, null=False)
     nombre=models.CharField(max_length=100, null=False)
     contraseña=models.CharField(max_length=20, null=False)
     idTienda=models.ForeignKey(Tienda, null=False, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.nombre
 
 class Producto(models.Model):
     idProducto = models.AutoField(primary_key=True, null=False)
@@ -21,6 +27,9 @@ class Producto(models.Model):
     stockMinimo=models.PositiveSmallIntegerField(null=False)
     valorUnitario=models.PositiveSmallIntegerField(null=False)
     categoria=models.CharField(max_length=50,null=False)
+
+    def __str__(self):
+        return self.nombreProducto
 
 class InicioSesion(models.Model):
     idSesion=models.AutoField(primary_key=True, null=False)
