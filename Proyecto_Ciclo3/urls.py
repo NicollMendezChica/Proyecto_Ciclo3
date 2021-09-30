@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from Tienda.views import *
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('TablaProductos/', TablaProductos),
+    path('Formulario/', formulario),
 ]
