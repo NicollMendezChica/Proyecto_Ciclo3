@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda virtual</title>
+</head>
+<body>
+    <h1> {% block etiq%}  Listado de Productos {% endblock etiq%} </h1>
+    {% block cuerpo%}
+        <table border=2>
+            <thead>
+                <trow>
+                    <th>ID Producto </th>
+                    <th>ID Tienda </th>
+                    <th>Nombre Producto</th>
+                    <th>Stock actual </th>
+                    <th>Stock minimo </th>
+                    <th>Valor Unitario </th>
+                    <th>Categoría</th>
+                </trow>
+            </thead>
+            <tbody>
+                {% for cadaprod in misProductos%}
+                    <tr>
+                        <td>  {{cadaprod.idProducto }} </td>
+                        <td>  {{cadaprod.idTienda }} </td>
+                        <td>  {{cadaprod.nombre }} </td>
+                        <td>  {{cadaprod.stockActual }} </td>
+                        <td>  {{cadaprod.valorUnitario }} </td>
+                        <td>  {{cadaprod.categoria }}</td>
+                    </tr>
+
+                {% endfor%}
+            </tbody>
+        </table>
+        {% endblock cuerpo%}
+</body>
+</html>
