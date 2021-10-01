@@ -21,5 +21,6 @@ from Tienda.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('TablaProductos/', TablaProductos),
-    path('Formulario/', formulario),
+    path('Formulario/', Formulario),
+    path('Crear/', CrearProductos),
 ]
