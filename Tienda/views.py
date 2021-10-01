@@ -6,7 +6,7 @@ from Tienda.Forms import *
 
 # Create your views here.
 
-def formulario(request):
+def Formulario(request):
     return render(request, "Formulario.html")
 
 def TablaProductos(request):
@@ -14,7 +14,7 @@ def TablaProductos(request):
     # print(productos)
     return render(request,"TablaProductos.html", {"misProductos": productos})
 
-def crearProds(request):
+def CrearProductos(request):
     if request.method == 'GET':
         form = ProductoFrm()
     else:
