@@ -1,6 +1,6 @@
 {% extends 'TablaProductos.html' %}
 {% block titulo %} Crear Productos {% endblock titulo %}
-{% block etiq%} Modifique {% endblock etiq%} 
+{% block etiq%} Crear Productos      {% endblock etiq%} 
 {% block cuerpo%} 
     <form method='post'>{% csrf_token %}
         
@@ -8,7 +8,7 @@
             <label for="name">Nombre:</label>
             <input type=text name='nomprod'>
         -->
-        {{formulario.as_p}} 
+        {{Formulario.as_p}} 
         <!-- {{formulario.nomProd}} -->
         <!--{{formulario.as_p}}-->
          <button type="submit"> "Guardar"</button>
