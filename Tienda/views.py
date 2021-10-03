@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, resolve_url
 from django.http import HttpResponse
 
 from Tienda.models import *
@@ -35,18 +35,24 @@ def vistaAccionFrm(request):
         mensaje = "No hay información..."
     return HttpResponse(mensaje)
 
-#def listarProds(request):
-#    productos=Productos.objects.all()  # Equivalente a decir SELECT * FROM PRODUCTOS
-    # print(productos)
-#    return render(request,"listarprods.html", {"misProductos": productos})
+def editarProducto(request, idProducto):
+    producto = Producto.objects.get( idProducto=idProducto )
+    if request.method == 'GET':
+        form = ProductoFrm(instance=producto)
+    else:
+        form = ProductoFrm(request.POST, instance=producto)
+        if form.is_valid():
+            form.save()
+            return redirect('TablaProductos')
+    contexto = {
+        'Formulario':form
+        }
+    return render (request, 'CrearProductos.html', contexto)
 
-# form = ProductoFrm()
-    # # return render(request,"crearprods.html", {'form': form})
-    # context = {
-    #     'form':form
-    # }
-    # return render(request,"crearprods.html", contexto)
-    # else:
-    #     form = ProductoFrm(request.POST)
-    #     print(form)
-    # return render(request,"crearprods.html", context)
+def eliminarProducto(request, idProducto):
+    producto = Producto.objects.get(idProducto=idProducto)
+    #Ventana de confirmacion
+    confirmar=True
+    if confirmar:
+        producto.delete()
+    return redirect('TablaProductos')
