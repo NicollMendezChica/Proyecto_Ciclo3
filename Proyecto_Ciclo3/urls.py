@@ -20,7 +20,8 @@ from Tienda.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('TablaProductos/', TablaProductos),
+    path('TablaProductos/', TablaProductos, name='TablaProductos'),
     path('Formulario/', Formulario),
     path('Crear/', CrearProductos),
+    path('urlAccionFrm/', vistaAccionFrm),
 ]
