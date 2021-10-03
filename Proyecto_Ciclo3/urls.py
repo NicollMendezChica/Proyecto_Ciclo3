@@ -24,4 +24,6 @@ urlpatterns = [
     path('Formulario/', Formulario),
     path('Crear/', CrearProductos),
     path('urlAccionFrm/', vistaAccionFrm),
+    path('editar/<int:idProducto>/', editarProducto, name='editar'),
+    path('eliminar/<int:idProducto>/', eliminarProducto, name='eliminar'),
 ]
