@@ -19,18 +19,21 @@
                     <th>Stock minimo </th>
                     <th>Valor Unitario </th>
                     <th>Categoría</th>
+                    <th>Opciones de modificación</th>
                 </trow>
             </thead>
             <tbody>
-                {% for cadaprod in misProductos%}
+                {% for prod in misProductos%}
                     <tr>
-                        <td>  {{cadaprod.idProducto }} </td>
-                        <td>  {{cadaprod.idTienda }} </td>
-                        <td>  {{cadaprod.nombreProducto }} </td>
-                        <td>  {{cadaprod.stockActual }} </td>
-                        <td>  {{cadaprod.stockMinimo }} </td>
-                        <td>  {{cadaprod.valorUnitario }} </td>
-                        <td>  {{cadaprod.categoria }}</td>
+                        <td>  {{prod.idProducto }} </td>
+                        <td>  {{prod.idTienda }} </td>
+                        <td>  {{prod.nombreProducto }} </td>
+                        <td>  {{prod.stockActual }} </td>
+                        <td>  {{prod.stockMinimo }} </td>
+                        <td>  {{prod.valorUnitario }} </td>
+                        <td>  {{prod.categoria }}</td>
+                        <td><a href= "{% url 'editar' prod.idProducto%}"> Editar </a> </td>
+                        <td><a href= "{% url 'eliminar' prod.idProducto%}"> Eliminar </a></td>
                     </tr>
 
                 {% endfor%}
