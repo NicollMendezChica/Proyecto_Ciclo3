@@ -1,0 +1,28 @@
+<html>
+
+{% comment %} return render(request,"resultados.html", {"articulos":misprods, "query":miVarName}) {% endcomment %}
+    <head>
+        <title> "Tienda Virtual" </title>
+    </head>
+<body>
+    <h1> Busqueda de productos</h1>
+    <p> Usted está buscando el producto con nombre: <strong> {{query}} </strong> </p>
+</body>
+
+ {%if articulos %}
+    <p> Cantidad de Articulos Encontrados: {{articulos|length}} artículo(s)</p>
+    <ul>
+        {% for articulo in articulos %}
+            <li> 
+                <p for="name">Nombre Producto: {{articulo.nombreProducto}}</p>
+                <p for="name">Stock Actual: {{articulo.stockActual}}</p>
+                <p for="name">Stock Minimo: {{articulo.stockMinimo}}</p>
+                <p for="name">Valor Unitario: {{articulo.valorUnitario}}</p>
+                <p for="name">Categoría: {{articulo.categoria}}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p> No se encuentra el artículo buscado... </p>
+{% endif %}
+</html>
