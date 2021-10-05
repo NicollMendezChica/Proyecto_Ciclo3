@@ -56,3 +56,54 @@ def eliminarProducto(request, idProducto):
     if confirmar:
         producto.delete()
     return redirect('TablaProductos')
+
+def FormularioUsuario(request):
+    return render(request, "FormularioUsuario.html")
+
+def TablaUsuario(request):
+    usuario=Usuario.objects.only('idUsuario', 'nombre', 'idTienda')  # Equivalente a decir SELECT * FROM PRODUCTOS
+    # print(productos)
+    return render(request,"TablaUsuario.html", {"misUsuarios": usuario})
+
+def CrearUsuario(request):
+    if request.method == 'GET':
+        form = UsuarioFrm()
+    else:
+        form = UsuarioFrm(request.POST)
+    contexto = {'FormularioUsuario':form}
+    if form.is_valid():
+        form.save()
+        return redirect('TablaUsuario')
+    return render(request,'CrearUsuario.html', contexto)
+
+def vistaAccionFrmUsuario(request):
+    if request.GET['Nombre']:  
+    #mensaje = request.GET["Nombre"] + " NO se encuentra entre nuestos Productos"
+        miVarName=request.GET["Nombre"]
+        misusers=Usuario.objects.filter(nombre__icontains=miVarName) # WHERE nomProd Like '%miVarName%'
+        return render(request,"ResultadosUsuarios.html", {"usuarios":misusers, "query":miVarName})
+    else:
+        mensaje = "No hay información..."
+    return HttpResponse(mensaje)
+
+def editarUsuario(request, idUsuario):
+    usuario = Usuario.objects.get( idUsuario=idUsuario )
+    if request.method == 'GET':
+        form = UsuarioFrm(instance=usuario)
+    else:
+        form = UsuarioFrm(request.POST, instance=usuario)
+        if form.is_valid():
+            form.save()
+            return redirect('TablaUsuario')
+    contexto = {
+        'FormularioUsuario':form
+        }
+    return render (request, 'CrearUsuario.html', contexto)
+
+def eliminarUsuario(request, idUsuario):
+    usuario = Usuario.objects.get(idUsuario=idUsuario)
+    #Ventana de confirmacion
+    confirmar=True
+    if confirmar:
+        usuario.delete()
+    return redirect('TablaUsuario')
