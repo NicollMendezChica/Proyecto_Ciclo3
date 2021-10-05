@@ -1,0 +1,16 @@
+{% extends 'TablaUsuario.html' %}
+{% block titulo %} Crear Usuario {% endblock titulo %}
+{% block etiq%} Crear Usuario      {% endblock etiq%} 
+{% block cuerpo%} 
+    <form method='post'>{% csrf_token %}
+        
+        <!--
+            <label for="name">Nombre:</label>
+            <input type=text name='nomprod'>
+        -->
+        {{FormularioUsuario.as_p}} 
+        <!-- {{formulario.nomProd}} -->
+        <!--{{formulario.as_p}}-->
+         <button type="submit"> "Guardar"</button>
+    </form>
+{% endblock cuerpo%}

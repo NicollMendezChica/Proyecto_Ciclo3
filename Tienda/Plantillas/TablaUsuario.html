@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda virtual</title>
+</head>
+<body>
+    <h1> {% block etiq%}  Listado de Usuarios {% endblock etiq%} </h1>
+    {% block cuerpo%}
+        <table border=2>
+            <thead>
+                <trow>
+                    <th>ID Usuario </th>
+                    <th>Nombre </th>
+                    {% comment %} <th>Contraseña </th> {% endcomment %}
+                    <th>ID Tienda </th>
+                    <th>Opciones de modificación </th>
+                </trow>
+            </thead>
+            <tbody>
+                {% for user in misUsuarios%}
+                    <tr>
+                        <td>  {{user.idUsuario }} </td>
+                        <td>  {{user.nombre }} </td>
+                        {% comment %} <td>  {{user.contraseña }} </td> {% endcomment %}
+                        <td>  {{user.idTienda }} </td>
+                        <td>
+                            <table border=1>
+                                <th><a href= "{% url 'editar' user.idUsuario%}"> Editar </a></th>
+                                <th><a href= "{% url 'eliminar' user.idUsuario%}"> Eliminar </a></th>
+                            </table>
+                        </td>
+                    </tr>
+
+                {% endfor%}
+            </tbody>
+        </table>
+        {% endblock cuerpo%}
+</body>
+</html>

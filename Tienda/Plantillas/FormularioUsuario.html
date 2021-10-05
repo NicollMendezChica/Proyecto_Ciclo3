@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Tienda Virtual </title>
+  </head>
+  <body>
+  <h1> {% block etiq%}  Buscar Usuarios {% endblock etiq%} </h1>
+    <form action="/urlAccionFrmUser/" method="GET">
+    <ul>
+
+        <br><br>
+        <label for="name">Id Usuario:</label>
+        <input type="text" name="IdUsuario">
+      
+        <br><br>
+        <label for="name">Nombre:</label>
+        <input type="text" name="Nombre">
+
+        <br><br>
+        <label for="name">Cédula :</label>
+        <input type="text" name="Cédula">
+
+        <br><br>
+        <label for="name">Contraseña :</label>
+        <input type="text" name="Contraseña">
+
+        <br><br>
+        <label for="name">Id Tienda :</label>
+        <input type="text" name="idTienda">
+
+        <br><br> 
+        <input type="submit" value="Enviar">
+
+      </li>
+
+    </ul>
+    </form>
+    
+  </body>
+</html>
