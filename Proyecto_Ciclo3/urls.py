@@ -22,8 +22,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('TablaProductos/', TablaProductos, name='TablaProductos'),
     path('Formulario/', Formulario),
-    path('Crear/', CrearProductos),
+    path('CrearProducto/', CrearProductos),
     path('urlAccionFrm/', vistaAccionFrm),
     path('editar/<int:idProducto>/', editarProducto, name='editar'),
     path('eliminar/<int:idProducto>/', eliminarProducto, name='eliminar'),
-]
+    path('FormularioUsuario/', FormularioUsuario),
+    path('TablaUsuario/', TablaUsuario, name='TablaUsuario'),
+    path('CrearUsuario/', CrearUsuario),
+    path('urlAccionFrmUser/', vistaAccionFrmUsuario),
+    path('editar/<int:idUsuario>/', editarUsuario, name='editar'),
+    path('eliminar/<int:idUsuario>/', eliminarUsuario, name='eliminar'),
+    ]
