@@ -32,8 +32,12 @@
                         <td>  {{prod.stockMinimo }} </td>
                         <td>  {{prod.valorUnitario }} </td>
                         <td>  {{prod.categoria }}</td>
-                        <td><a href= "{% url 'editar' prod.idProducto%}"> Editar </a> </td>
-                        <td><a href= "{% url 'eliminar' prod.idProducto%}"> Eliminar </a></td>
+                        <td>
+                            <table border=1>
+                                <th><a href= "{% url 'editar' prod.idProducto%}"> Editar </a></th>
+                                <th><a href= "{% url 'eliminar' prod.idProducto%}"> Eliminar </a></th>
+                            </table>
+                        </td>
                     </tr>
 
                 {% endfor%}
