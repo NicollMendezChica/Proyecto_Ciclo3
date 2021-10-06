@@ -35,7 +35,7 @@
                         <td>
                             <table border=1>
                                 <th><a href= "{% url 'editar' prod.idProducto%}"> Editar </a></th>
-                                <th><a href= "{% url 'eliminar' prod.idProducto%}"> Eliminar </a></th>
+                                <th><a href= "{% url 'eliminar' prod.idProducto%}" onclick="return confirm('¿Estas seguro de eliminar la fila?')"> Eliminar </a></th>
                             </table>
                         </td>
                     </tr>
