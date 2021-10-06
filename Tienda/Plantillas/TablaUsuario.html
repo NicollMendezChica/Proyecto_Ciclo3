@@ -28,8 +28,8 @@
                         <td>  {{user.idTienda }} </td>
                         <td>
                             <table border=1>
-                                <th><a href= "{% url 'editar' user.idUsuario%}"> Editar </a></th>
-                                <th><a href= "{% url 'eliminar' user.idUsuario%}"> Eliminar </a></th>
+                                <th><a href= "{% url 'editarUsuario' user.idUsuario%}"> Editar </a></th>
+                                <th><a href= "{% url 'eliminarUsuario' user.idUsuario%}" onclick="return confirm('¿Estas seguro de eliminar la fila?')"> Eliminar </a></th>
                             </table>
                         </td>
                     </tr>
