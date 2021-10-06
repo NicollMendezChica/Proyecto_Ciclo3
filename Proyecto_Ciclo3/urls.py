@@ -20,6 +20,7 @@ from Tienda.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', homepage, name='homepage'),
     path('TablaProductos/', TablaProductos, name='TablaProductos'),
     path('Formulario/', Formulario),
     path('CrearProducto/', CrearProductos),
@@ -30,6 +31,6 @@ urlpatterns = [
     path('TablaUsuario/', TablaUsuario, name='TablaUsuario'),
     path('CrearUsuario/', CrearUsuario),
     path('urlAccionFrmUser/', vistaAccionFrmUsuario),
-    path('editar/<int:idUsuario>/', editarUsuario, name='editar'),
-    path('eliminar/<int:idUsuario>/', eliminarUsuario, name='eliminar'),
+    path('editarUsuario/<int:idUsuario>/', editarUsuario, name='editarUsuario'),
+    path('eliminarUsuario/<int:idUsuario>/', eliminarUsuario, name='eliminarUsuario'),
     ]
