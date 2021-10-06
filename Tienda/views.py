@@ -1,10 +1,13 @@
-from django.shortcuts import render, redirect, resolve_url
+from django.shortcuts import render, redirect,  resolve_url
 from django.http import HttpResponse
 
 from Tienda.models import *
 from Tienda.Forms import *
 
 # Create your views here.
+
+def homepage(request):
+    return render(request, "homepage.html")
 
 def Formulario(request):
     return render(request, "Formulario.html")
